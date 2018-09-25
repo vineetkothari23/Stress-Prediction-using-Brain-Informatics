@@ -30,47 +30,7 @@ shinyServer(
       read.table(file=file1$datapath, sep=input$sep, header=input$header, stringsAsFactors=input$stringsasfactors) 
     })
     
-    data2 <- reactive({
-      file2 <- input$filealpha
-      
-      if(is.null(file2))
-      {return()}
-      read.table(file=file2$datapath, sep=input$sep, header=input$header, stringsAsFactors=input$stringsasfactors)
-    })
-    
-    data3 <- reactive({
-      file3 <- input$filebeta
-      
-      if(is.null(file3))
-      {return()}
-      read.table(file=file3$datapath, sep=input$sep, header=input$header, stringsAsFactors=input$stringsasfactors)
-    })
-    
-    data4 <- reactive({
-      file4 <- input$filegamma
-      
-      if(is.null(file4))
-      {return()}
-      read.table(file=file4$datapath, sep=input$sep, header=input$header, stringsAsFactors=input$stringsasfactors)
-    })
-    
-    data5 <- reactive({
-      file5 <- input$filetheta
-      
-      if(is.null(file5))
-      {return()}
-      read.table(file=file5$datapath, sep=input$sep, header=input$header, stringsAsFactors=input$stringsasfactors)
-    })
-    
-    data6 <- reactive({
-      file6 <- input$filetest
-      
-      if(is.null(file6))
-      {return()}
-      read.table(file=file6$datapath, sep=input$sep, header=input$header, stringsAsFactors=input$stringsasfactors)
-    })
-    
-    
+   
     output$filedf <- renderText({
       "                             
       
@@ -118,26 +78,7 @@ shinyServer(
       if(is.null(data())){return()}
       data()  
     })
-    
-    output$table2 <- renderTable({
-      if(is.null(data())){return()}
-      data()  
-    })
-    
-    output$table3 <- renderTable({
-      if(is.null(data())){return()}
-      data()  
-    })
-    
-    output$table4 <- renderTable({
-      if(is.null(data())){return()}
-      data()  
-    })
-    
-    output$table5 <- renderTable({
-      if(is.null(data())){return()}
-      data2() 
-    })
+   
     #####################################################################################################################################################
     output$ann <- renderTable({
       file2 <- data()
